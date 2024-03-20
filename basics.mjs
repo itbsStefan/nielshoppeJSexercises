@@ -4,6 +4,8 @@
  * anwendet. Verwende Arrow-Funktionen.
  */
 // export const ...
+const a = 1
+console.log(a)
 // ...
 // ...
 // ...
@@ -24,7 +26,10 @@
  * @returns 
  */
 export function umsatzsteuer (umsatz, steuerjahr = 2024) {
-    
+    let r = (umsatz * 0.19) + umsatz
+    if(steuerjahr > new Date().getFullYear()) 
+        console.log("Frage die zukunfts KI im Internet nach den Steuersatz!")
+    return r
     // ...
 }
 
