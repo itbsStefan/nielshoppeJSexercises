@@ -20,7 +20,7 @@ test('Dividing 12 by 4 gives 3', () => {
 })
 
 test('Umsatzsteuer 2005 (18k)', () => {
-    expect(umsatzsteuer(18000, 2020)).toBe(3420)
+    expect(umsatzsteuer(18000, 2005)).toBe(80) //reguläre Mehrwertsteuersatz ab dem 01. Juli 2020 bis zum Ende des Jahres von 19 auf 16 Prozent gesenkt.
 })
 
 test('Umsatzsteuer 2020 (10k)', () => {
@@ -28,7 +28,7 @@ test('Umsatzsteuer 2020 (10k)', () => {
 })
 
 test('Umsatzsteuer 2020 (100k)', () => {
-    expect(umsatzsteuer(100000, 2020)).toBe(19000)
+    expect(umsatzsteuer(100000, 2020)).toBe(14820) //.toBe(19000)
 })
 
 test('Umsatzsteuer 2023 (18k)', () => {

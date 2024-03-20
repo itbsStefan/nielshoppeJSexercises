@@ -45,25 +45,25 @@ export function umsatzsteuer (umsatz, steuerjahr = 2024) {
     let r = (umsatz * 0.19)
 
     if (steuerjahr<2007) {
-        r = (umsatz * 0.16) // Verbrauchersteuer von 16 auf 19 Prozent. „Haushaltsbegleitgesetz 2006“
+        r = ((umsatz-17500) * 0.16) // Verbrauchersteuer von 16 auf 19 Prozent. „Haushaltsbegleitgesetz 2006“
     }
 
     if(steuerjahr == 2020){
-        r = (umsatz * 0.16)
+        r = ((umsatz-17500) * 0.16)
         console.log("In Deutschland wurde der reguläre Mehrwertsteuersatz ab dem 01. Juli 2020 bis zum Ende des Jahres von 19 auf 16 Prozent gesenkt. Der ermäßigte Steuersatz wurde von 7 auf 5 Prozent reduziert.")
     }
 
-    if(steuerjahr >= 2003 && steuerjahr <= 2019) {
+    if(steuerjahr >= 2006 && steuerjahr <= 2019) {
         r = 0
         console.log("Kleinunternehmerregelung 17.500 EUR")
-        r = ((umsatz-17.500)* 0.19)
+        r = ((umsatz-17500)* 0.19)
     }
     
     if(steuerjahr >= 2020) {
-        console.log("Kleinunternehmerregelung")
+        console.log("Kleinunternehmerregelung",umsatz, steuerjahr)
         r = 0
-        if(umsatz > 22.000) {
-            r = ((umsatz-22.000)* 0.19)
+        if(umsatz > 22000) {
+            r = ((umsatz-22000)* 0.19)
         }
     }
 
@@ -73,6 +73,7 @@ export function umsatzsteuer (umsatz, steuerjahr = 2024) {
     // ...
 }
 console.log(umsatzsteuer(20000,2020),"\n",umsatzsteuer(620000,2030))
+console.log(umsatzsteuer(18000, 2023))
 // switch
 
 /**
@@ -129,18 +130,39 @@ export function deckOfCards () {
     }
     return karten
 }
-console.log("Kartenspiels",deckOfCards())
+// console.log("Kartenspiels",deckOfCards())
+
+
 /**
  * Schreibe eine Funktion, die die ersten N Antworten für das FizzBuzz-Spiel
  * erzeugt und auf der Konsole ausgibt.
  * 
  * @param {*} n 
  * @see https://de.wikipedia.org/wiki/Fizz_buzz
+ * 
+ * Eine typische Runde Fizz Buzz würde beispielsweise wie folgt beginnen:
+ * 1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, Fizz Buzz, 16, 17, Fizz, 19, Buzz, Fizz, 22, 23, Fizz, Buzz, 26, Fizz, 28, 29, Fizz Buzz, 31, 32, Fizz, 34, Buzz, Fizz …
  */
-export function fizzbuzz (n) {
-    
-    // ...
+export function fizzbuzz(n) {
+    //console.log(n)
+    let m = n-1
+    if(m <= 0){
+        console.log(n)
+        return
+    }else{
+        fizzbuzz(m)
+    }
+    if( (n%3 == 0) && (n%5 == 0) ){
+        console.log("fizz buzz")
+    }else if(n%3 == 0){
+        console.log("fizz")
+    }else if(n%5 == 0){
+        console.log("buzz")
+    }else{
+        console.log(n)
+    }
 }
+console.log("Das war Aufruf fizzbuzz(42)")
 
 // recursion
 
@@ -151,10 +173,25 @@ export function fizzbuzz (n) {
  * @returns n-th Fibonacci number
  * @see https://de.wikipedia.org/wiki/Fibonacci-Folge
  */
-export function fibonacci (n) {
+export function fibonacci(n) {
+    if(n == 0) {
+        return 0
+    }
     if(n == 1) {
         return 1
     }
-    fibonacci(--n)
+    if(n == 2) {
+        return 1
+    }
+    let n1 = n-1
+    let n2 = n-2
+    let x1 = fibonacci(n1)
+    let x2 = fibonacci(n2)
+    return (x1 + x2)
 }
-console.log("fibonacci(10)",fibonacci(10))
+
+for(let i = 1;i<=15;i++) {
+//    console.log(`fibonacci(${i})`,fibonacci(i))
+}
+
+
