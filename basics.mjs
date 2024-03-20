@@ -80,9 +80,9 @@ console.log(umsatzsteuer(20000,2020),"\n",umsatzsteuer(620000,2030))
  * Formen berechnet. Die Funktion soll zwei Argumente erhalten:
  * Den Namen der geometrischen Form (circle, triangle, rectangle), sowie die
  * dafür relevanten Parameter als ein Objekt.
- * Für die Berechnung eines Kreises wird der Radius benötigt.
+ * Für die Berechnung eines Kreises wird der Radius (radius) benötigt.
  * Für die Berechnung eines Dreieckes sowie eines Rechteckes werden die Länge
- * der Grundseite sowie die Höhe benötigt.
+ * der Grundseite (base) sowie die Höhe (height) benötigt.
  * 
  * @param {*} shape 
  * @param {*} params 

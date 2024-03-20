@@ -1,6 +1,6 @@
 import { afterAll, expect, test, vi } from "vitest"
 
-import { add, substract, multiply, divide } from "./basics.mjs"
+import { add, substract, multiply, divide, umsatzsteuer } from "./basics.mjs"
 import { area, fizzbuzz, fibonacci } from "./basics.mjs"
 
 test('Adding 5 to 3 gives 8', () => {
@@ -17,6 +17,22 @@ test('Multiplying 4 by 6 gives 24', () => {
 
 test('Dividing 12 by 4 gives 3', () => {
     expect(divide(12, 4)).toBe(3)
+})
+
+test('Umsatzsteuer 2005 (18k)', () => {
+    expect(umsatzsteuer(18000, 2020)).toBe(3420)
+})
+
+test('Umsatzsteuer 2020 (10k)', () => {
+    expect(umsatzsteuer(10000, 2020)).toBe(0)
+})
+
+test('Umsatzsteuer 2020 (100k)', () => {
+    expect(umsatzsteuer(100000, 2020)).toBe(19000)
+})
+
+test('Umsatzsteuer 2023 (18k)', () => {
+    expect(umsatzsteuer(18000, 2023)).toBe(0)
 })
 
 test('Area of unit circle', () => {
