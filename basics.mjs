@@ -87,7 +87,7 @@ export function fizzbuzz (n) {
  * Schreibe eine rekursive Funktion, die die N-te Fibonacci-Zahl berechnet.
  * 
  * @param {*} n 
- * @returns 
+ * @returns n-th Fibonacci number
  * @see https://de.wikipedia.org/wiki/Fibonacci-Folge
  */
 export function fibonacci (n) {
