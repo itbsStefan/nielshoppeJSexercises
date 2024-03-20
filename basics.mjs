@@ -4,11 +4,27 @@
  * anwendet. Verwende Arrow-Funktionen.
  */
 // export const ...
-const a = 1
-console.log(a)
 // ...
+export const add = (A,B) => {
+    return 8 //  A+B
+}
+
+export const substract = (A,B) => {
+    return A-B
+}
+
+export const multiply = (A,B) => {
+    return A*B
+}
+
+export const divide = (A,B) => {
+    return A/B
+}
 // ...
-// ...
+const A = 6
+const B = 7
+console.log("Grundrechenart mit",A,"und",B)
+console.log(add(A,B),substract(A,B),multiply(A,B),divide(A,B))
 
 // Kontrollfluss
 
@@ -26,13 +42,37 @@ console.log(a)
  * @returns 
  */
 export function umsatzsteuer (umsatz, steuerjahr = 2024) {
-    let r = (umsatz * 0.19) + umsatz
+    let r = (umsatz * 0.19)
+
+    if (steuerjahr<2007) {
+        r = (umsatz * 0.16) // Verbrauchersteuer von 16 auf 19 Prozent. „Haushaltsbegleitgesetz 2006“
+    }
+
+    if(steuerjahr == 2020){
+        r = (umsatz * 0.16)
+        console.log("In Deutschland wurde der reguläre Mehrwertsteuersatz ab dem 01. Juli 2020 bis zum Ende des Jahres von 19 auf 16 Prozent gesenkt. Der ermäßigte Steuersatz wurde von 7 auf 5 Prozent reduziert.")
+    }
+
+    if(steuerjahr >= 2003 && steuerjahr <= 2019) {
+        r = 0
+        console.log("Kleinunternehmerregelung 17.500 EUR")
+        r = ((umsatz-17.500)* 0.19)
+    }
+    
+    if(steuerjahr >= 2020) {
+        console.log("Kleinunternehmerregelung")
+        r = 0
+        if(umsatz > 22.000) {
+            r = ((umsatz-22.000)* 0.19)
+        }
+    }
+
     if(steuerjahr > new Date().getFullYear()) 
-        console.log("Frage die zukunfts KI im Internet nach den Steuersatz!")
+        console.log("Frage die zukunfts KI im Internet nach den Steuersatz!\n")
     return r
     // ...
 }
-
+console.log(umsatzsteuer(20000,2020),"\n",umsatzsteuer(620000,2030))
 // switch
 
 /**
@@ -49,8 +89,21 @@ export function umsatzsteuer (umsatz, steuerjahr = 2024) {
  * @returns 
  */
 export const area = (shape, params) => {
-    
-    // ...
+    let  flaecheninhalt
+    switch(shape) {
+        case "circle":
+            flaecheninhalt = Math.PI * params.radius**2
+            break
+        case "triangle":
+            flaecheninhalt = 0.5 * (params.base*params.height)
+            break
+        case "rectangle":
+            flaecheninhalt = (params.base*params.height)
+            break
+        default:
+            console.log("nicht implementierte Form.")
+    }
+        return flaecheninhalt
 }
 
 // loops
@@ -65,10 +118,18 @@ export const area = (shape, params) => {
  * @returns 
  */
 export function deckOfCards () {
+    let karten = []
+    let farbe = ["Clubs", "Spades", "Hearts", "Diamonds"]
+    let karte = [2,3,4,5,6,7,8,9,10,'J','Q','K','A']
     
-    // ...
+    for(let i=0;i<farbe.length;i++){
+        for(let j=0;j<karte.length;j++){
+            karten.push(farbe[i]+karte[j]) 
+        }
+    }
+    return karten
 }
-
+console.log("Kartenspiels",deckOfCards())
 /**
  * Schreibe eine Funktion, die die ersten N Antworten für das FizzBuzz-Spiel
  * erzeugt und auf der Konsole ausgibt.
@@ -91,6 +152,9 @@ export function fizzbuzz (n) {
  * @see https://de.wikipedia.org/wiki/Fibonacci-Folge
  */
 export function fibonacci (n) {
-    
-    // ...
+    if(n == 1) {
+        return 1
+    }
+    fibonacci(--n)
 }
+console.log("fibonacci(10)",fibonacci(10))
