@@ -1,3 +1,8 @@
+
+const countries = require('./countries.json')
+console.log(countries);
+
+
 /**
  * Schreibe eine Funktion, die ein Land daraufhin prüft, ob es in Europa liegt.
  * 

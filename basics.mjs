@@ -130,7 +130,7 @@ export function deckOfCards () {
     }
     return karten
 }
-// console.log("Kartenspiels",deckOfCards())
+console.log("Kartenspiels",deckOfCards())
 
 
 /**
