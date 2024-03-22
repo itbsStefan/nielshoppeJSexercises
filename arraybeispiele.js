@@ -57,4 +57,28 @@ for( [i,e] of liste.entries()) { console.log(i,e)} // alle indexes definiert abe
 console.log("------------------------")
 
 
+console.log("---undef=forEach--map--filter-----Liste=[].Expressions()------")
+
+let ind =100
+console.log("forEach", liste.forEach( (wer,ind) => { console.log(wer,ind) } ) )
+
+const zahlen = [1,2,3,42]
+let neu = []
+
+neu = zahlen.map( (e,i) => { return 2*e } )
+console.log("Typeof map", typeof neu,neu ) 
+neu.forEach( (wer,ind,all) => { console.log("neu von Map",ind,wer,all) } )
+
+
+neu = zahlen.filter( (element, index) => {return ((element%2==0)? true:false) } )
+console.log("Typeof filter", typeof neu,neu ) 
+//neu.forEach( (wer,ind) => { console.log("neu von Filter",ind,wer) } )
+neu.forEach( console.log )
+
+console.log("filter", zahlen,neu ) 
+
+
+
+
+
 
