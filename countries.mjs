@@ -7,8 +7,9 @@ import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 const countries = require("./countries.json");
 
-console.log(countries);
+//console.log(countries);
 
+console.log(countries[2]);
 
 
 /**
@@ -17,8 +18,18 @@ console.log(countries);
  * @param {*} country 
  * @returns 
  */
-export function isEurope (country) {
+export function isEurope (country) {   
+/*  
+common: 'Liberia',
+official: 'Republic of Liberia',
+eng: { f: 'Liberian', m: 'Liberian' },
+fra: { f: 'Libérienne', m: 'Libérien' }
 
+region
+ */
+
+    const neu = countries.filter( (element, index) => {return ((element.region == "Europa")? true:false) } )
+    
     // ...
 }
 

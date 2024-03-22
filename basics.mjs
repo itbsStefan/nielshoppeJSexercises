@@ -194,7 +194,10 @@ export function fizzbuzz(n) {
         console.log(n)
     }
 }
-console.log("Das war Aufruf fizzbuzz(42)")
+console.log(
+    "Das war Aufruf fizzbuzz(42)",
+    fizzbuzz(42) // fizzbuzz(9380)
+)
 
 // recursion
 
@@ -205,6 +208,17 @@ console.log("Das war Aufruf fizzbuzz(42)")
  * @returns n-th Fibonacci number
  * @see https://de.wikipedia.org/wiki/Fibonacci-Folge
  */
+export function fib(n){
+    if(n===0) return 0
+    if(n===1) return 1
+    return fib(n-1) + fib(n-2)
+}
+console.log("fib(12)",fib(12))
+
+const f = n => n===0? 0 : n===1? 1 : f(n-1)+f(n-2)
+console.log( [10,12,15].map(f) )
+let n = [8,9,10,11,12].map(f).forEach( (e) => { console.log(e) });
+
 export function fibonacci(n) {
     if(n == 0) {
         return 0
@@ -223,7 +237,9 @@ export function fibonacci(n) {
 }
 
 for(let i = 1;i<=15;i++) {
-//    console.log(`fibonacci(${i})`,fibonacci(i))
+    console.log(`fibonacci(${i})`,fibonacci(i))
 }
+
+console.log("  fibonacci(12)",fibonacci(12))
 
 
