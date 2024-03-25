@@ -1,8 +1,8 @@
 // Signatur
-export default async (req, context) {
-    
+export default async r(req, context) {
+    return Response("Hallo Du!")
 }
 
-// npm insatall --global netlify-cli
+// npm install --global netlify-cli
 // netlify dev
 
