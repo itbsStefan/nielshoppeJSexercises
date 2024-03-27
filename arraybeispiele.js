@@ -78,6 +78,9 @@ neu.forEach( console.log )
 console.log("filter", zahlen,neu ) 
 
 
+// in node console
+// ( (a,x=2) => console.log(a) )(h)
+
 
 
 
