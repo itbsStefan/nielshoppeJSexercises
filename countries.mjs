@@ -9,7 +9,7 @@ const countries = require("./countries.json");
 
 //console.log(countries);
 
-console.log(countries[2]);
+console.log(countries[42]);
 
 
 /**
