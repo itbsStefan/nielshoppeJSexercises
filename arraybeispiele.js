@@ -52,6 +52,14 @@ for(wert of liste) {if(wert)console.log(wert)}
 // 2 undefined
 console.log("------------------------")
 
+//Object.keys(mensch)
+//Object.values(mensch)
+//Object.entries()
+
+liste.keys()
+liste.values()
+liste.entries()
+
 console.log("for( [i,e] of liste.entries()) { console.log(i,e)}")
 for( [i,e] of liste.entries()) { console.log(i,e)} // alle indexes definiert aber e undefined
 console.log("------------------------")
