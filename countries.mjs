@@ -25,7 +25,8 @@ official: 'Republic of Liberia',
 eng: { f: 'Liberian', m: 'Liberian' },
 fra: { f: 'Libérienne', m: 'Libérien' }
 
-region
+region: 'Oceania',
+
  */
 
     const neu = countries.filter( (element, index) => {return ((element.region == "Europa")? true:false) } )
